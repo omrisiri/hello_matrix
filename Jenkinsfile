@@ -16,7 +16,7 @@ node('docker') {
       echo "Hello ${myname}"
     }
     stage('theend'){
-        node('jenkins') {
+        node('master') {
            sh 'sleep 30'
            println('Goodbye world') 
         }

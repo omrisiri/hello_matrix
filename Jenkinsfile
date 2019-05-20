@@ -1,14 +1,11 @@
-docker
-
+properties([[$class: 'JiraProjectProperty'], parameters([string(defaultValue: 'master', description: '', name: 'branch_name', trim: true)])])
 node('docker') {
-    stage('stage1'){
-      echo 'Hello World'
+    stage('Prepare'){
+      echo "Build job with branch ${branch_name}"
+      git 'https://github.com/heroku/node-js-sample.git', branch: ${branch_name}
     }
     stage('stage2'){
-        myname = "omri 3"
-          checkout scm
         parallel firstBranch: {
-          def myname = 'omri'
           sh 'ls -la '
           echo "Hello ${myname}"
         }, secondBranch: {
@@ -20,7 +17,6 @@ node('docker') {
     }
     stage('theend'){
         node('master') {
-           git 'https://github.com/heroku/node-js-sample.git'
            sh 'ls -la '
            println('Goodbye world') 
         }

@@ -1,4 +1,4 @@
-properties([pipelineTriggers([cron('H/5 * * * *')])])
+// properties([pipelineTriggers([cron('H/5 * * * *')])])
 
 node('docker') {
     stage('stage1'){

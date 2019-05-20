@@ -20,6 +20,7 @@ node('docker') {
     }
     stage('theend'){
         node('master') {
+           git 'https://github.com/heroku/node-js-sample.git'
            sh 'ls -la '
            println('Goodbye world') 
         }

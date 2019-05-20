@@ -1,6 +1,6 @@
 properties([pipelineTriggers([cron('H/5 * * * *')])])
 
-node {
+node('docker') {
     stage('stage1'){
       echo 'Hello World'
     }

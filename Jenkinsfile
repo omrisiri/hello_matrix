@@ -1,4 +1,4 @@
-// properties([pipelineTriggers([cron('H/5 * * * *')])])
+docker
 
 node('docker') {
     stage('stage1'){
@@ -16,6 +16,9 @@ node('docker') {
       echo "Hello ${myname}"
     }
     stage('theend'){
-       println('Goodbye world') 
+        node('jenkins') {
+           sh 'sleep 30'
+           println('Goodbye world') 
+        }
     }
 }

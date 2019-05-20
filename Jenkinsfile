@@ -11,6 +11,7 @@ node('docker') {
           echo "Hello ${myname}"
         }, secondBranch: {
           def myname = 'omri 2'
+          checkout scm
           sh 'ls -la '
           echo "Hello ${myname} in parallel"
        }

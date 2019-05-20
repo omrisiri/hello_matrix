@@ -5,7 +5,7 @@ node {
       echo 'Hello World'
     }
     stage('stage2'){
-        def myname = "omri 3"
+        myname = "omri 3"
         parallel firstBranch: {
           def myname = 'omri'
           echo "Hello ${myname}"

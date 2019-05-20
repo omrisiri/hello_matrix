@@ -6,12 +6,13 @@ node('docker') {
     }
     stage('stage2'){
         myname = "omri 3"
+          checkout scm
         parallel firstBranch: {
           def myname = 'omri'
+          sh 'ls -la '
           echo "Hello ${myname}"
         }, secondBranch: {
           def myname = 'omri 2'
-          checkout scm
           sh 'ls -la '
           echo "Hello ${myname} in parallel"
        }

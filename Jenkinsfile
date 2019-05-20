@@ -9,10 +9,9 @@ node {
           def myname = 'omri'
           echo "Hello ${myname}"
         }, secondBranch: {
-          def myname = 'omri'
+          def myname = 'omri 2'
           echo "Hello ${myname} in parallel"
        }
-      def myname = 'omri'
       echo "Hello ${myname}"
     }
     stage('theend'){

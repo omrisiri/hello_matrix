@@ -11,13 +11,14 @@ node('docker') {
           echo "Hello ${myname}"
         }, secondBranch: {
           def myname = 'omri 2'
+          sh 'ls -la '
           echo "Hello ${myname} in parallel"
        }
       echo "Hello ${myname}"
     }
     stage('theend'){
         node('master') {
-           sh 'sleep 30'
+           sh 'ls -la '
            println('Goodbye world') 
         }
     }

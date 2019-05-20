@@ -4,7 +4,7 @@ node('docker') {
     stage('Prepare'){
       echo "Build job with branch ${branch_name}"
       // git 'https://github.com/heroku/node-js-sample.git', 
-      git branch: 'master', 'https://github.com/heroku/node-js-sample.git'
+      git branch: "${branch_name}", url: 'https://github.com/heroku/node-js-sample.git'
     }
     stage('stage2'){
         parallel firstBranch: {
